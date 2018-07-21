@@ -5,47 +5,60 @@ public class Calendar
 	public static void main(String[] args)
 	{
 
+		//This introduction informs the user of the purpose of this program as well
+		//as how to operate it.
 		System.out.println("Welcome to Cameron Brock's calendar application");
 		System.out.println("To view the preceeding month, type 'PREV'");
 		System.out.println("To view the succeeding month, type 'NEXT");
 		System.out.println("To exit, type 'EXIT'");
 
+		//Define the year, month, and day.
 		int year = getDate()[0];
 		int month = getDate()[1];
 		int day = getDate()[2];
-
 		
 		
 		while (true)
 		{
-
+			//Declare a new year object with the value of the current year.
 			Year curr_year = new Year(year);
 
+			//Print the calendar.
 			System.out.println(curr_year.months[month]);
 			System.out.println("<-- PREV	NEXT-->");
 
+			//Define a scanner and gather user input.
 			Scanner scanner = new Scanner(System.in);
 			String user_input = scanner.nextLine().toUpperCase();
 			
+			//If the user types "EXIT":
 			if (user_input.equals("EXIT"))
 				return;
+			//If the user types "PREV":
 			if (user_input.equals("PREV"))
 			{
+				//If the current month is January, we must decrement the year and
+				//set the month to December.
 				if (month == 0)
 				{
 					--year;
 					month = 11;
 				}
+				//Otherwise, merely decrement the month.
 				else
 					--month;
 			}
+			//If the user types "NEXT":
 			if (user_input.equals("NEXT"))
 			{
+				//If the current month is December, we must increment the year and
+				//set the month to January.
 				if (month == 11)
 				{
 					++year;
 					month = 0;
 				}
+				//Otherwise, merely increment the month.
 				else
 					++month;
 			}

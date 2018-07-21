@@ -127,32 +127,43 @@ public class Month
 	}
 
 	public String toString()
-	{		
-		
-		String output = "	" + this.name + "\n";
+	{
+		//Here, we treat a calendar as a grid, with columns representing the day of the week
+		//and rows representing the week of the month. There are seven columns and six rows.
+	
+		//Add the month name to the top of the calendar and center it.
+		String output = "      " + this.name + " " + this.year + "\n";
 
+		//Print the days of the week for reference
 		output += "S  M  T  W  Th F  Sat\n";
 
+		//For every day of the week preceding the first day, we should merely print spaces.
 		for (int i = 0; i < this.firstDay(); ++i)
 			output += "   ";
 
+		//The day to be printed.
 		int day = 1;
 
+		//The column to be considered should be the first day of the week.
 		int col = this.firstDay();
 
 		for (int row = 0; row < 6 && day <=days; ++row)
 		{
+			//Because we have already defined col, we do not need to do so in this for loop.
 			for (; col < 7 && day <= days; ++col)
 			{
+				//We will output each day as a two-digit number.
 				output += String.format("%02d ", day);
 				++day;
 			}
 
+			//We have not completed the week. The column will be reset to the beginning of
+			//the week, zero, and we will output a newline.
 			col = 0;
 			output += "\n";
 		}
 		
-
+		//Return the result.
 		return output;
 	}
 
