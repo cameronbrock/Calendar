@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class Month
 {
 	//The designation of the month. For example, March is 3, April is 4,
