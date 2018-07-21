@@ -127,10 +127,7 @@ public class Month
 	}
 
 	public String toString()
-	{
-
-		//return String.format("Designation: %d\nDays: %d\nFirst day: %d\n", this.designation, this.days, this.firstDay());
-		
+	{		
 		
 		String output = "	" + this.name + "\n";
 
