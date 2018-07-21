@@ -163,6 +163,9 @@ public class Month
 			output += "\n";
 		}
 		
+		//Display options for user
+		output += "<-- PREV	 NEXT-->\n";
+
 		//Return the result.
 		return output;
 	}
