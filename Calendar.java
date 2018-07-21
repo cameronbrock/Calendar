@@ -17,7 +17,7 @@ public class Calendar
 		int month = getDate()[1];
 		int day = getDate()[2];
 		
-		
+		//This while loop runs for the duration of the program.
 		while (true)
 		{
 			//Declare a new year object with the value of the current year.
@@ -26,6 +26,7 @@ public class Calendar
 			//Print the calendar.
 			System.out.println(curr_year.months[month]);
 			
+			//This while loop waits for the user to input a command.
 			while (true)
 			{
 
