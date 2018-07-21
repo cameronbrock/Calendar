@@ -1,11 +1,6 @@
 public class Year
 {
 
-	public static void main(String[] args)
-	{
-
-	}
-
 	public final int value; //The number representing the year itself
 						    //(e.g. 1995, 2020, etc.)
 	
