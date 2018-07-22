@@ -129,8 +129,18 @@ public class Month
 		//Here, we treat a calendar as a grid, with columns representing the day of the week
 		//and rows representing the week of the month. There are seven columns and six rows.
 	
+		//Declare the string that will be output and set equal to an empty string.
+		String output = "";
+
+		//This outputs the number of spaces needed to center the month and year at the top.
+		//The calendar is 21 "spaces" long. The year takes up four of those, meaning there are
+		//17 left. Therefore, subtract the length of the month from 17 and divide that by 2,
+		//then output that many spaces at the beginning to center it. 
+		for (int i = 0; i < (17 - this.name.length())/2; ++i)
+			output += " ";
+
 		//Add the month name to the top of the calendar and center it.
-		String output = "      " + this.name + " " + this.year + "\n";
+		output += this.name + " " + this.year + "\n";
 
 		//Print the days of the week for reference
 		output += "S  M  T  W  Th F  Sat\n";
