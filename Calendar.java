@@ -68,6 +68,8 @@ public class Calendar
 					break;
 				}
 				else
+					//Otherwise, alert the user that they have entered
+					//an invalid input.
 					System.out.println("Invalid input");
 			}
 
