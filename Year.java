@@ -28,18 +28,19 @@ public class Year
 
 		months[0]  = new Month(13, this.value); // January
 		months[1]  = new Month(14, this.value); // February
-		months[2]  = new Month(3, this.value); // March
-		months[3]  = new Month(4, this.value); // April
-		months[4]  = new Month(5, this.value); // May
-		months[5]  = new Month(6, this.value); // June
-		months[6]  = new Month(7, this.value); // July
-		months[7]  = new Month(8, this.value); // August
-		months[8]  = new Month(9, this.value); // September
+		months[2]  = new Month(3,  this.value); // March
+		months[3]  = new Month(4,  this.value); // April
+		months[4]  = new Month(5,  this.value); // May
+		months[5]  = new Month(6,  this.value); // June
+		months[6]  = new Month(7,  this.value); // July
+		months[7]  = new Month(8,  this.value); // August
+		months[8]  = new Month(9,  this.value); // September
 		months[9]  = new Month(10, this.value); // October
 		months[10] = new Month(11, this.value); // November
 		months[11] = new Month(12, this.value); // December
 
-		//Initialize the number of days in this year
+		//Initialize the number of days in this year. If it is a leap year, it contains 366 days.
+		//Otherwise, it contains 365.
 		if (Calendar.isLeapYear(value))
 			days = 366;
 		else

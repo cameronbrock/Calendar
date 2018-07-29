@@ -129,25 +129,19 @@ public class Month
 		//Here, we treat a calendar as a grid, with columns representing the day of the week
 		//and rows representing the week of the month. There are seven columns and six rows.
 	
-		//Declare the string that will be output and set equal to an empty string.
-		String output = "";
-
-		//This outputs the number of spaces needed to center the month and year at the top.
-		//The calendar is 21 "spaces" long. The year takes up four of those, meaning there are
-		//17 left. Therefore, subtract the length of the month from 17 and divide that by 2,
-		//then output that many spaces at the beginning to center it. 
-		for (int i = 0; i < (17 - this.name.length())/2; ++i)
-			output += " ";
+		//Begin the string via HTML notation. The string is written in HTML as that is how text
+		//is interpreted by the JLabel class.
+		String output = "<html><font face=\"Monospaced\" size = \"6\">";
 
 		//Add the month name to the top of the calendar and center it.
-		output += this.name + " " + this.year + "\n";
+		output += "<center>" + this.name + " " + this.year + "</center><br/>";
 
 		//Print the days of the week for reference
-		output += "S  M  T  W  Th F  Sat\n";
+		output += "S&nbsp;&nbsp;M&nbsp;&nbsp;T&nbsp;&nbsp;W&nbsp;&nbsp;Th&nbsp;F&nbsp;Sat<br/>";
 
 		//For every day of the week preceding the first day, we should merely print spaces.
 		for (int i = 0; i < this.firstDay(); ++i)
-			output += "   ";
+			output += "&nbsp;&nbsp;&nbsp;";
 
 		//The day to be printed.
 		int day = 1;
@@ -161,18 +155,29 @@ public class Month
 			for (; col < 7 && day <= days; ++col)
 			{
 				//We will output each day as a two-digit number.
-				output += String.format("%02d ", day);
-				++day;
+				//If the value of day is the current day...
+				if (this.year == Calendar.getDate()[0] && (this.designation == Calendar.getDate()[1] + 1 || this.designation == Calendar.getDate()[1] + 13) && day == Calendar.getDate()[2])
+				{
+					//Output the day number in red font.
+					output += "<font color='red'>" + String.format("%02d&nbsp;", day) + "</font>";
+					++day;
+				}
+				//Otherwise, output it in black.
+				else
+				{
+					output += String.format("%02d&nbsp;", day);
+					++day;
+				}
 			}
 
-			//We have not completed the week. The column will be reset to the beginning of
+			//We have now completed the week. The column will be reset to the beginning of
 			//the week, zero, and we will output a newline.
 			col = 0;
-			output += "\n";
+			output += "<br/>";
 		}
 		
-		//Display options for user
-		output += "<-- PREV	 NEXT-->\n";
+		//Closing HTML tag
+		output += "</h1></html>";
 
 		//Return the result.
 		return output;
