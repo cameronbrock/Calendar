@@ -183,59 +183,6 @@ public class Calendar extends JFrame
 		//Make the window visible.
 		setVisible(true);
 
-		/*
-
-		//Print the calendar.
-		System.out.println(curr_year.months[month]);
-		
-		//This while loop waits for the user to input a command.
-		while (true)
-		{
-
-			//Define a scanner and gather user input.
-			Scanner scanner = new Scanner(System.in);
-			String user_input = scanner.nextLine().toUpperCase();
-
-			//If the user types "EXIT":
-			if (user_input.equals("EXIT"))
-				return;
-			//If the user types "PREV":
-			else if (user_input.equals("PREV"))
-			{
-				//If the current month is January, we must decrement the year and
-				//set the month to December.
-				if (month == 0)
-				{
-					--year;
-					month = 11;
-				}
-				//Otherwise, merely decrement the month.
-				else
-					--month;
-				break;
-			}
-			//If the user types "NEXT":
-			else if (user_input.equals("NEXT"))
-			{
-				//If the current month is December, we must increment the year and
-				//set the month to January.
-				if (month == 11)
-				{
-					++year;
-					month = 0;
-				}
-				//Otherwise, merely increment the month.
-				else
-					++month;
-				break;
-			}
-			else
-				//Otherwise, alert the user that they have entered
-				//an invalid input.
-				System.out.println("Invalid input");
-		}
-		*/
-
 			
 	}
 
