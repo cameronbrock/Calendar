@@ -40,7 +40,7 @@ public class Calendar extends JFrame
 		next = new JButton(">>");
 
 		//Create the displayed GUI.
-		CreateView();
+		createWindow();
 	}
 
 	//Define the main function.
@@ -124,7 +124,7 @@ public class Calendar extends JFrame
 		return date;
 	}
 
-	public void CreateView()
+	public void createWindow()
 	{
 
 

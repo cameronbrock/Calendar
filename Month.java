@@ -149,25 +149,30 @@ public class Month
 		//The column to be considered should be the first day of the week.
 		int col = this.firstDay();
 
-		for (int row = 0; row < 6 && day <=days; ++row)
+		for (int row = 0; row < 6; ++row)
 		{
 			//Because we have already defined col, we do not need to do so in this for loop.
-			for (; col < 7 && day <= days; ++col)
+			for (; col < 7; ++col)
 			{
 				//We will output each day as a two-digit number.
 				//If the value of day is the current day...
-				if (this.year == Calendar.getDate()[0] && (this.designation == Calendar.getDate()[1] + 1 || this.designation == Calendar.getDate()[1] + 13) && day == Calendar.getDate()[2])
+				if (day <= days)
 				{
-					//Output the day number in red font.
-					output += "<font color='red'>" + String.format("%02d&nbsp;", day) + "</font>";
-					++day;
+					if (this.year == Calendar.getDate()[0] && (this.designation == Calendar.getDate()[1] + 1 || this.designation == Calendar.getDate()[1] + 13) && day == Calendar.getDate()[2])
+					{
+						//Output the day number in red font.
+						output += "<font color='red'>" + String.format("%02d&nbsp;", day) + "</font>";
+						++day;
+					}
+					//Otherwise, output it in black.
+					else
+					{
+						output += String.format("%02d&nbsp;", day);
+						++day;
+					}
 				}
-				//Otherwise, output it in black.
 				else
-				{
-					output += String.format("%02d&nbsp;", day);
-					++day;
-				}
+					output += "&nbsp;&nbsp;&nbsp;";
 			}
 
 			//We have now completed the week. The column will be reset to the beginning of
