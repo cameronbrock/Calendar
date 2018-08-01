@@ -35,60 +35,9 @@ public class Month
 		this.designation = designation;
 		this.year = year;
 
-		switch (designation)
-		{
-			case 13:
-				name = "January";
-				this.days = 31; // January
-				break;
-			case 14:
-				name = "February";
-				this.days = Calendar.isLeapYear(year) ? 29 : 28; // February
-				break;
-			case 3:
-				name = "March";
-				this.days = 31; // March
-				break;
-			case 4:
-				name = "April";
-				this.days = 30; // April
-				break;
-			case 5:
-				name = "May";
-				this.days = 31; // May
-				break;
-			case 6:
-				name = "June";
-				this.days = 30; // June
-				break;
-			case 7:
-				name = "July";
-				this.days = 31; // July
-				break;
-			case 8:
-				name = "August";
-				this.days = 31; // August
-				break;
-			case 9:
-				name = "September";
-				this.days = 30; // September
-				break;
-			case 10:
-				name = "October";
-				this.days = 31; // October
-				break;
-			case 11:
-				name = "November";
-				this.days = 30; // November
-				break;
-			case 12:
-				name = "December";
-				this.days = 31; // December
-				break;
-			default:
-				name = "Default";
-				this.days = 0; // Default
-		}
+		this.days = Calendar.getDays(designation, year);
+		this.name = Calendar.getName(designation);
+
 	}
 
 	public int firstDay()

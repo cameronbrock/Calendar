@@ -27,7 +27,7 @@ public class Calendar extends JFrame
 		label = new JLabel();
 
 		//Define the current year and month
-		curr_year = getDate()[0];
+		curr_year = getDate()[0] ;
 		curr_month = getDate()[1];
 
 		//Define the year and month
@@ -104,16 +104,30 @@ public class Calendar extends JFrame
 		//well as the number of days that have passed this month.
 		//int i = 0;
 
-		for (int i = 0; i < currYearObj.months.length && days > currYearObj.months[i].days; ++i)
+		int i = 0; //Iterator for the following for loop. It is defined outside the scope of the
+				   //for loop so that we can
+
+		for (; i < currYearObj.months.length && days > currYearObj.months[i].days; ++i)
 		{
 			days -= currYearObj.months[i].days;
 			++months;
 		}
 
 
-		++days; //To account for the fact that the while loop
-			    //counts how many days and months have passed,
-			    //not what the current day or month is.
+		//To account for the fact that the while loop
+	    //counts how many days and months have passed,
+		//not what the current day or month is, we must
+		//increment days. However, we must also make sure
+		//that we do not exceed the number of days in the
+		//current month:
+
+		if ((++days) > currYearObj.months[i].days)
+		{
+			days = Long.valueOf(1);
+			++months;
+		}
+		else
+			++days;
 
 
 		//Return an array containing the values in year/month/day format,
@@ -122,6 +136,109 @@ public class Calendar extends JFrame
 
 		//Return the result
 		return date;
+	}
+
+	public static int getDays(int designation, int year)
+	{
+
+		//Outputs the number of days of a month given the month designation and the year.
+
+		int days;
+
+		switch (designation)
+		{
+			case 13:
+				days = 31; // January
+				break;
+			case 14:
+				days = isLeapYear(year) ? 29 : 28; // February
+				break;
+			case 3:
+				days = 31; // March
+				break;
+			case 4:
+				days = 30; // April
+				break;
+			case 5:
+				days = 31; // May
+				break;
+			case 6:
+				days = 30; // June
+				break;
+			case 7:
+				days = 31; // July
+				break;
+			case 8:
+				days = 31; // August
+				break;
+			case 9:
+				days = 30; // September
+				break;
+			case 10:
+				days = 31; // October
+				break;
+			case 11:
+				days = 30; // November
+				break;
+			case 12:
+				days = 31; // December
+				break;
+			default:
+				days = 0;  // Default
+		}
+
+		return days;
+	}
+
+	public static String getName(int designation)
+	{
+		//Outputs the name of a month given the month designation and the year.
+
+		String name;
+
+		switch (designation)
+		{
+			case 13:
+				name = "January";
+				break;
+			case 14:
+				name = "February";
+				break;
+			case 3:
+				name = "March";
+				break;
+			case 4:
+				name = "April";
+				break;
+			case 5:
+				name = "May";
+				break;
+			case 6:
+				name = "June";
+				break;
+			case 7:
+				name = "July";
+				break;
+			case 8:
+				name = "August";
+				break;
+			case 9:
+				name = "September";
+				break;
+			case 10:
+				name = "October";
+				break;
+			case 11:
+				name = "November";
+				break;
+			case 12:
+				name = "December";
+				break;
+			default:
+				name = "Default";
+		}
+
+		return name;
 	}
 
 	public void createWindow()
