@@ -88,8 +88,6 @@ public class Month
 		//Print the days of the week for reference
 		output += "S&nbsp;&nbsp;M&nbsp;&nbsp;T&nbsp;&nbsp;W&nbsp;&nbsp;Th&nbsp;F&nbsp;Sat<br/>";
 
-		output += Calendar.getDate()[0] + " " + Calendar.getDate()[1] + " " + Calendar.getDate()[2] + "<br/>";
-
 		//For every day of the week preceding the first day, we should merely print spaces.
 		for (int i = 0; i < this.firstDay(); ++i)
 			output += "&nbsp;&nbsp;&nbsp;";
