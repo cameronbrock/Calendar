@@ -126,8 +126,6 @@ public class Calendar extends JFrame
 			days = Long.valueOf(1);
 			++months;
 		}
-		else
-			++days;
 
 
 		//Return an array containing the values in year/month/day format,
